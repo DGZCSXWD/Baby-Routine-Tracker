@@ -1,0 +1,19 @@
+{{> menu }}
+
+<div class="container">
+    <h1>Feeding Records</h1>
+    {{#each feedingData}}
+    <p>{{this.type}} - {{this.quantity_ml}}ml - {{this.time}}</p>
+    {{/each}}
+    <form id="new-feeding-form">
+        <label for="feeding-type">Milk Type:</label>
+        <select id="feeding-type" required>
+            <option value="Breast">Breast</option>
+            <option value="Formula">Formula</option>
+        </select>
+        <label for="feeding-quantity">Feeding Quantity (ml):</label>
+        <input type="number" id="feeding-quantity" required>
+        <button type="submit">Add New Feeding</button>
+    </form>
+    <script src="/js/feed.js"></script>
+</div>

@@ -1,0 +1,15 @@
+{{> menu }}
+
+{{#if logged_in}}
+<div class="container">
+    <h1>Welcome to the Baby Tracker!</h1>
+    <button id="feeding-btn">Feeding Record</button>
+    <button id="nappy-change-btn">Nappy Change Record</button>
+</div>
+{{else}}
+<div class="container">
+    <button id="login-btn">Login</button>
+    <button id="register-btn">Register</button>
+</div>
+{{/if}}
+<script src="/js/landing.js"></script>

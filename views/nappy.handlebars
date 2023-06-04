@@ -1,0 +1,20 @@
+{{> menu }}
+
+<div class="container">
+    <h1>Nappy Change Records</h1>
+    {{#each nappyData}}
+    <p>{{this.type}} - {{this.time}}</p>
+    {{/each}}
+    <form id="new-nappychange-form">
+        <label for="nappy-type">Nappy Type:</label>
+        <select id="nappy-type" required>
+            <option value="Wet">Wet</option>
+            <option value="Dirty">Dirty</option>
+            <option value="Wet & Dirty">Wet & Dirty</option>
+            <option value="Dry">Dry</option>
+        </select>
+        <button type="submit">Add New Nappy Change</button>
+    </form>
+</div>
+<script src="/js/nappy.js"></script>
+
