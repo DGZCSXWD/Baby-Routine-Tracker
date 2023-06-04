@@ -9,7 +9,17 @@ router.get("/feed", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    res.json(feedingData);
+
+    const plainData = feedingData.map((record) => {
+      const plainRecord = record.get({ plain: true });
+      plainRecord.time = new Date(plainRecord.time).toLocaleString();
+      return plainRecord;
+    });
+
+    res.render("feed", {
+      feedingData: plainData,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +28,9 @@ router.get("/feed", withAuth, async (req, res) => {
 router.post("/feed", withAuth, async (req, res) => {
   try {
     const newFeeding = await Feeding.create({
-      ...req.body,
+      type: req.body.type,
+      quantity_ml: req.body.quantity_ml,
+      time: new Date(),
       user_id: req.session.user_id,
     });
 

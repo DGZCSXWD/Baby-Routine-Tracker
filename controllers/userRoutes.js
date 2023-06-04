@@ -2,6 +2,15 @@ const router = require("express").Router();
 const User = require("../models/User");
 const withAuth = require("../utilis/withAuth");
 
+router.get("/register", async (req, res) => {
+  try {
+    res.render("register");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.post("/register", async (req, res) => {
   try {
     const userData = await User.create({
@@ -18,6 +27,15 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
+  }
+});
+
+router.get("/login", async (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

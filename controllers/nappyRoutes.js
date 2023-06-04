@@ -9,7 +9,17 @@ router.get("/nappy", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    res.json(nappyData);
+
+    const plainData = nappyData.map((record) => {
+      const plainRecord = record.get({ plain: true });
+      plainRecord.time = new Date(plainRecord.time).toLocaleString();
+      return plainRecord;
+    });
+
+    res.render("nappy", {
+      nappyData: plainData,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +28,8 @@ router.get("/nappy", withAuth, async (req, res) => {
 router.post("/nappy", withAuth, async (req, res) => {
   try {
     const newNappyChange = await NappyChange.create({
-      ...req.body,
+      type: req.body.type,
+      time: new Date(),
       user_id: req.session.user_id,
     });
 
