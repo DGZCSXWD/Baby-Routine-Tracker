@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
 
       const userData = {
-        email: document.getElementById("email").value.trim(),
-        password: document.getElementById("password").value.trim(),
+        email: document.getElementById("register-email").value.trim(),
+        password: document.getElementById("register-password").value.trim(),
       };
 
       if (!userData.email || !userData.password) {
