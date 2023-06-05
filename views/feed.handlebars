@@ -1,4 +1,4 @@
-{{> menu }}
+{{!-- {{> menu }}
 
 <div class="container">
     <h1>Feeding Records</h1>
@@ -14,6 +14,30 @@
         <label for="feeding-quantity">Feeding Quantity (ml):</label>
         <input type="number" id="feeding-quantity" required>
         <button type="submit">Add New Feeding</button>
+    </form>
+    <script src="/js/feed.js"></script>
+</div> --}}
+
+{{> menu }}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Feeding Records</h1>
+    {{#each feedingData}}
+    <p class="mb-2">{{this.type}} - {{this.quantity_ml}}ml - {{this.time}}</p>
+    {{/each}}
+    <form id="new-feeding-form" class="my-4">
+        <div class="form-group">
+          <label for="feeding-type">Milk Type:</label>
+          <select id="feeding-type" class="form-control" required>
+              <option value="Breast">Breast</option>
+              <option value="Formula">Formula</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="feeding-quantity">Feeding Quantity (ml):</label>
+          <input type="number" id="feeding-quantity" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add New Feeding</button>
     </form>
     <script src="/js/feed.js"></script>
 </div>

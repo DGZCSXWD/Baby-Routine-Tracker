@@ -1,7 +1,15 @@
-<div class="menu">
+{{!-- <div class="menu">
   {{#if logged_in}}
     <button id="home-btn">Home</button>
     <button id="logout-btn">Logout</button>
+    <script src="/js/logout.js"></script>
+  {{/if}}
+</div> --}}
+
+<div class="menu d-flex justify-content-end p-2">
+  {{#if logged_in}}
+    <button id="home-btn" class="btn btn-primary mx-1">Home</button>
+    <button id="logout-btn" class="btn btn-secondary mx-1">Logout</button>
     <script src="/js/logout.js"></script>
   {{/if}}
 </div>

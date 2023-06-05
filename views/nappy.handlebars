@@ -1,4 +1,4 @@
-{{> menu }}
+{{!-- {{> menu }}
 
 <div class="container">
     <h1>Nappy Change Records</h1>
@@ -17,4 +17,26 @@
     </form>
 </div>
 <script src="/js/nappy.js"></script>
+ --}}
 
+{{> menu }}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Nappy Change Records</h1>
+    {{#each nappyData}}
+    <p>{{this.type}} - {{this.time}}</p>
+    {{/each}}
+    <form id="new-nappychange-form" class="my-4">
+        <div class="form-group">
+            <label for="nappy-type">Nappy Type:</label>
+            <select id="nappy-type" class="form-control" required>
+                <option value="Wet">Wet</option>
+                <option value="Dirty">Dirty</option>
+                <option value="Wet & Dirty">Wet & Dirty</option>
+                <option value="Dry">Dry</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add New Nappy Change</button>
+    </form>
+</div>
+<script src="/js/nappy.js"></script>

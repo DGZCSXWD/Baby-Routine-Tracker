@@ -1,4 +1,4 @@
-{{> menu }}
+{{!-- {{> menu }}
 
 {{#if logged_in}}
 <div class="container">
@@ -10,6 +10,24 @@
 <div class="container">
     <button id="login-btn">Login</button>
     <button id="register-btn">Register</button>
+</div>
+{{/if}}
+<script src="/js/landing.js"></script> --}}
+
+{{> menu }}
+
+{{#if logged_in}}
+<div class="container text-center mt-5">
+    <h2>What do you want to record?</h2>
+    <button id="feeding-btn" class="btn btn-primary m-3">Feeding Record</button>
+    <button id="nappy-change-btn" class="btn btn-primary m-3">Nappy Change Record</button>
+</div>
+{{else}}
+<div class="container text-center mt-5">
+    <h2>Welcome to Baby Routine Tracker</h2>
+    <h3>Please login or registe an account</h3>
+    <button id="login-btn" class="btn btn-primary m-3">Login</button>
+    <button id="register-btn" class="btn btn-secondary m-3">Register</button>
 </div>
 {{/if}}
 <script src="/js/landing.js"></script>
