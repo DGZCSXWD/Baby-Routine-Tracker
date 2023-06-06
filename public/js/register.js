@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (response.ok) {
         window.location.href = "/";
       } else {
-        alert("Failed to register");
+        alert(
+          "Please enter a valid email address and password length of 8 characters or more"
+        );
       }
     });
 });
